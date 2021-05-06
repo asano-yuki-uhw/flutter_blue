@@ -22,10 +22,12 @@ class FlutterBlue {
   }
 
   static FlutterBlue _instance = new FlutterBlue._();
+
   static FlutterBlue get instance => _instance;
 
   /// Log level of the instance, default is all messages (debug).
   LogLevel _logLevel = LogLevel.debug;
+
   LogLevel get logLevel => _logLevel;
 
   /// Checks whether the device supports Bluetooth
@@ -36,6 +38,7 @@ class FlutterBlue {
   Future<bool> get isOn => _channel.invokeMethod('isOn').then<bool>((d) => d);
 
   BehaviorSubject<bool> _isScanning = BehaviorSubject.seeded(false);
+
   Stream<bool> get isScanning => _isScanning.stream;
 
   BehaviorSubject<List<ScanResult>> _scanResults = BehaviorSubject.seeded([]);
@@ -223,6 +226,7 @@ enum BluetoothState {
 
 class ScanMode {
   const ScanMode(this.value);
+
   static const lowPower = const ScanMode(0);
   static const balanced = const ScanMode(1);
   static const lowLatency = const ScanMode(2);
@@ -232,6 +236,7 @@ class ScanMode {
 
 class DeviceIdentifier {
   final String id;
+
   const DeviceIdentifier(this.id);
 
   @override
@@ -246,15 +251,23 @@ class DeviceIdentifier {
 }
 
 class ScanResult {
+  //TODO
+  // ScanResult.fromProto(protos.ScanResult p)
+  //     : device = new BluetoothDevice.fromProto(p.device),
+  //       advertisementData =
+  //           new AdvertisementData.fromProto(p.advertisementData),
+  //       rssi = p.rssi;
   ScanResult.fromProto(protos.ScanResult p)
       : device = new BluetoothDevice.fromProto(p.device),
         advertisementData =
             new AdvertisementData.fromProto(p.advertisementData),
-        rssi = p.rssi;
+        rssi = p.rssi,
+        test = "test";
 
   final BluetoothDevice device;
   final AdvertisementData advertisementData;
   final int rssi;
+  final String test;
 
   @override
   bool operator ==(Object other) =>
