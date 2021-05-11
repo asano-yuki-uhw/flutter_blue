@@ -60,8 +60,9 @@ class BluetoothDevice {
 
   BehaviorSubject<List<BluetoothService>> _services =
       BehaviorSubject.seeded([]);
-  //servicesを取得してみる
-  BehaviorSubject<List<BluetoothService>> get getServices => _services;
+  // _servicesで取得できているので不要。
+  // //servicesを取得してみる
+  // BehaviorSubject<List<BluetoothService>> get getServices => _services;
 
   /// Discovers services offered by the remote device as well as their characteristics and descriptors
   Future<List<BluetoothService>> discoverServices() async {
