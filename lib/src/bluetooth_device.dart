@@ -11,11 +11,12 @@ class BluetoothDevice {
   final String qualifiedMessageName;
   final BuilderInfo info;
 
-  //TODO
+  //before
   // BluetoothDevice.fromProto(protos.BluetoothDevice p)
   //     : id = new DeviceIdentifier(p.remoteId),
   //       name = p.name,
   //       type = BluetoothDeviceType.values[p.type.value];
+  //BuilderInfoを取得してみる
   BluetoothDevice.fromProto(protos.BluetoothDevice p)
       : id = new DeviceIdentifier(p.remoteId),
         name = p.name,
@@ -59,6 +60,8 @@ class BluetoothDevice {
 
   BehaviorSubject<List<BluetoothService>> _services =
       BehaviorSubject.seeded([]);
+  //servicesを取得してみる
+  BehaviorSubject<List<BluetoothService>> get getServices => _services;
 
   /// Discovers services offered by the remote device as well as their characteristics and descriptors
   Future<List<BluetoothService>> discoverServices() async {

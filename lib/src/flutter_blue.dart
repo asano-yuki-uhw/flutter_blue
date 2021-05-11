@@ -251,7 +251,7 @@ class DeviceIdentifier {
 }
 
 class ScanResult {
-  //TODO
+  //before
   // ScanResult.fromProto(protos.ScanResult p)
   //     : device = new BluetoothDevice.fromProto(p.device),
   //       advertisementData =
