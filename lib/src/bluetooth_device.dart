@@ -9,7 +9,7 @@ class BluetoothDevice {
   final String name;
   final BluetoothDeviceType type;
   final String qualifiedMessageName;
-  final BuilderInfo info;
+  // final BuilderInfo info;
 
   //TODO
   // BluetoothDevice.fromProto(protos.BluetoothDevice p)
@@ -19,7 +19,7 @@ class BluetoothDevice {
   BluetoothDevice.fromProto(protos.BluetoothDevice p)
       : id = new DeviceIdentifier(p.remoteId),
         name = p.name,
-        info = p.info_,
+        // info = p.info_,
         qualifiedMessageName = p.info_.qualifiedMessageName,
         type = BluetoothDeviceType.values[p.type.value];
 
