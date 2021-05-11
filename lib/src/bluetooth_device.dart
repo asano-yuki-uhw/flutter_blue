@@ -19,7 +19,6 @@ class BluetoothDevice {
   BluetoothDevice.fromProto(protos.BluetoothDevice p)
       : id = new DeviceIdentifier(p.remoteId),
         name = p.name,
-        // info = p.info_,
         qualifiedMessageName = p.info_.qualifiedMessageName,
         type = BluetoothDeviceType.values[p.type.value];
 
