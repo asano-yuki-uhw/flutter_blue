@@ -263,13 +263,15 @@ class ScanResult {
             new AdvertisementData.fromProto(p.advertisementData),
         rssi = p.rssi,
         test = "test",
-        test2 = true;
+        test2 = "true";
+  // test2 = true;
 
   final BluetoothDevice device;
   final AdvertisementData advertisementData;
   final int rssi;
   final String test;
-  final bool test2;
+  final String test2;
+  // final bool test2;
 
   @override
   bool operator ==(Object other) =>
