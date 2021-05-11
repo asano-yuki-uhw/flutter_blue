@@ -8,10 +8,19 @@ class BluetoothDevice {
   final DeviceIdentifier id;
   final String name;
   final BluetoothDeviceType type;
+  final String qualifiedMessageName;
+  final BuilderInfo info;
 
+  //TODO
+  // BluetoothDevice.fromProto(protos.BluetoothDevice p)
+  //     : id = new DeviceIdentifier(p.remoteId),
+  //       name = p.name,
+  //       type = BluetoothDeviceType.values[p.type.value];
   BluetoothDevice.fromProto(protos.BluetoothDevice p)
       : id = new DeviceIdentifier(p.remoteId),
         name = p.name,
+        info = p.info_,
+        qualifiedMessageName = p.info_.qualifiedMessageName,
         type = BluetoothDeviceType.values[p.type.value];
 
   BehaviorSubject<bool> _isDiscoveringServices = BehaviorSubject.seeded(false);
